@@ -4,6 +4,14 @@ Latex Beamer Template for the eScience Center
 ## Using the beamer template
 Just download and copy the template then you can change it in whatever way you want.
 
+### Building
+I like to use latexmk to make the pdf out of this template. Under ubuntu I use xelatex to build it (this works better than pdflatex for some reason).
+My full build command looks something like:
+
+```bash
+latexmk -synctex=1 -xelatex -interaction=nonstopmode -file-line-error -pdf main
+```
+
 ## Contributing
 Do you have good ideas or contributions feel free to send a pull request.
 
