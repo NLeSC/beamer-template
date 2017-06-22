@@ -1,0 +1,126 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[listings,theorems]{tcolorbox}
+\usepackage{listings}
+\usepackage{ulem}
+
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+
+% Using the default theme, but overriding some colors
+\usetheme{default}
+\usecolortheme{dove}
+% Coloring
+\definecolor{eScienceBlue}{RGB}{0,175,234}
+\setbeamercolor{structure}{fg=eScienceBlue}
+\setbeamercolor{block title}{bg=eScienceBlue, fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{title}{fg=black}
+
+% decrease distance between title and main body
+\addtobeamertemplate{frametitle}{}{\vspace{-1em}}
+
+% Different author setup where you can use
+% \and to make new lines and & to separate
+% a left and right side.
+% See the authors below for an example.
+\input{src/authors.tex}
+
+% Background image white with the waves on the bottom right
+\usebackgroundtemplate{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{img/background/background.png}}
+
+
+%%%%
+% The title and authors
+%%%%
+\title{\Huge Beamer Template}
+\subtitle{\large With awesome eScience colors\\
+  for Informal Settlements}
+\author[institute \and people]{%
+  eScience Center & Johnny Awesome \and
+                  & Greta Geweldig \and
+                  & \textbf{Stanislav Verygud}}
+\date{}
+
+\begin{document}
+{
+  % Blue background for the title page
+  \usebackgroundtemplate{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{img/background/background_landscape.png}}
+  % The title page needs some special attention for the logos
+  % Add extra tikz nodes for all the other logos you need.
+  % the at is for (x, y) position from the top-left. positive x is to the right, negative y is down
+  \begin{frame}
+    \tikz [remember picture,overlay]
+      \node (A) at (1,-7){
+        \includegraphics[width=3cm]{img/logos/ESCIENCE_logo_C_nl_small_white.eps}};
+    \tikz [remember picture,overlay]
+      \node (B) at (0.2, -7.5){
+        % I decided not to use the png image, because the resolution sucks
+        %\includegraphics[width=1cm]{img/logos/bysurf.png}
+        {\tiny \color{white} by {SURF}\&{NWO}}};
+
+    \titlepage
+  \end{frame}
+}
+
+\begin{frame}
+  \frametitle{Single Column layout}
+  \begin{center}
+    \begin{itemize}
+      \item Item 1..
+      \item Item 2..
+      \item etc.
+    \end{itemize}
+    \begin{enumerate}
+      \item Item
+      \item Item
+      \item etc.
+    \end{enumerate}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Important}
+  \begin{center}
+    \begin{itemize}
+      \item Below we use a tcolorbox for some very important information
+    \end{itemize}
+    \vfill
+    \begin{tcolorbox}[colframe=eScienceBlue,title=Need to know]
+       This is very important to know, you know
+    \end{tcolorbox}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Two column layout}
+  \framesubtitle{Cats, I like them}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item This is my cat
+        \item Her name is Wookie
+        \begin{itemize}
+          \item Yes, its from Star Wars
+          \item She is a Devon Rex
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[height=0.75\textheight]{img/cat.jpg}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+  Questions?
+  \end{center}
+\end{frame}
+\end{document}
